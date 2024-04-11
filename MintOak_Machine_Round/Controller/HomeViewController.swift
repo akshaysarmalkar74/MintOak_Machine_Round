@@ -37,7 +37,12 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     @IBAction func didTapChangeBtn(_ sender: UIButton) {
-        print("Did Tap Change Button")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let filterViewController = storyboard.instantiateViewController(withIdentifier: "FilterViewController") as! FilterViewController
+        filterViewController.allData = allData
+        filterViewController.selectedFilterData = selectedFilterData
+        filterViewController.modalPresentationStyle = .overCurrentContext
+        self.present(filterViewController, animated: true)
     }
 }
 

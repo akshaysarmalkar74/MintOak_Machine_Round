@@ -13,6 +13,9 @@
 		CF31DA652BC81E6300C86C98 /* MIDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31DA632BC81E6300C86C98 /* MIDTableViewCell.swift */; };
 		CF31DA662BC81E6300C86C98 /* MIDTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF31DA642BC81E6300C86C98 /* MIDTableViewCell.xib */; };
 		CF31DA692BC81FA900C86C98 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31DA682BC81FA900C86C98 /* String+Extension.swift */; };
+		CF31DA6B2BC8399200C86C98 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31DA6A2BC8399200C86C98 /* FilterViewController.swift */; };
+		CF31DA6E2BC8422F00C86C98 /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF31DA6C2BC8422F00C86C98 /* CompanyCollectionViewCell.swift */; };
+		CF31DA6F2BC8422F00C86C98 /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF31DA6D2BC8422F00C86C98 /* CompanyCollectionViewCell.xib */; };
 		CFDAE4B72BC80F3500DC00EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDAE4B62BC80F3500DC00EC /* AppDelegate.swift */; };
 		CFDAE4B92BC80F3500DC00EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDAE4B82BC80F3500DC00EC /* SceneDelegate.swift */; };
 		CFDAE4BB2BC80F3500DC00EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDAE4BA2BC80F3500DC00EC /* HomeViewController.swift */; };
@@ -28,6 +31,9 @@
 		CF31DA632BC81E6300C86C98 /* MIDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDTableViewCell.swift; sourceTree = "<group>"; };
 		CF31DA642BC81E6300C86C98 /* MIDTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIDTableViewCell.xib; sourceTree = "<group>"; };
 		CF31DA682BC81FA900C86C98 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		CF31DA6A2BC8399200C86C98 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		CF31DA6C2BC8422F00C86C98 /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
+		CF31DA6D2BC8422F00C86C98 /* CompanyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyCollectionViewCell.xib; sourceTree = "<group>"; };
 		CFDAE4B32BC80F3500DC00EC /* MintOak_Machine_Round.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MintOak_Machine_Round.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFDAE4B62BC80F3500DC00EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFDAE4B82BC80F3500DC00EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				CFDAE4BA2BC80F3500DC00EC /* HomeViewController.swift */,
+				CF31DA6A2BC8399200C86C98 /* FilterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -96,6 +103,8 @@
 			children = (
 				CF31DA632BC81E6300C86C98 /* MIDTableViewCell.swift */,
 				CF31DA642BC81E6300C86C98 /* MIDTableViewCell.xib */,
+				CF31DA6C2BC8422F00C86C98 /* CompanyCollectionViewCell.swift */,
+				CF31DA6D2BC8422F00C86C98 /* CompanyCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -199,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF31DA6F2BC8422F00C86C98 /* CompanyCollectionViewCell.xib in Resources */,
 				CFDAE4C32BC80F3600DC00EC /* LaunchScreen.storyboard in Resources */,
 				CF31DA662BC81E6300C86C98 /* MIDTableViewCell.xib in Resources */,
 				CFDAE4C02BC80F3600DC00EC /* Assets.xcassets in Resources */,
@@ -216,8 +226,10 @@
 			files = (
 				CFDAE4BB2BC80F3500DC00EC /* HomeViewController.swift in Sources */,
 				CF31DA692BC81FA900C86C98 /* String+Extension.swift in Sources */,
+				CF31DA6B2BC8399200C86C98 /* FilterViewController.swift in Sources */,
 				CF31DA5F2BC81B2600C86C98 /* FilterDataResponse.swift in Sources */,
 				CF31DA652BC81E6300C86C98 /* MIDTableViewCell.swift in Sources */,
+				CF31DA6E2BC8422F00C86C98 /* CompanyCollectionViewCell.swift in Sources */,
 				CFDAE4B72BC80F3500DC00EC /* AppDelegate.swift in Sources */,
 				CFDAE4B92BC80F3500DC00EC /* SceneDelegate.swift in Sources */,
 				CF31DA582BC819D400C86C98 /* DataFetcher.swift in Sources */,

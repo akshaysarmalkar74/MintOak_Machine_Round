@@ -76,3 +76,24 @@ struct SelectedFilterData {
     let brands: [String]
     let locations: [String]
 }
+
+enum FilterTypes {
+    case account(num: Int)
+    case brand(num: Int)
+    case location(num: Int)
+    
+    var displayText: String {
+        switch self {
+            case .account:
+                return "Select Account Number"
+            case .brand:
+                return "Select Brand"
+            case .location:
+                return "Select Location"
+        }
+    }
+    
+//    static func generateFilterValues(filterVal: FilterData) -> [FilterTypes] {
+//        
+//    }
+}
