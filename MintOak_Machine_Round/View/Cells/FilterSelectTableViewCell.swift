@@ -18,7 +18,7 @@ class FilterSelectTableViewCell: UITableViewCell {
     }
     
     func configureData(name: String, isSelected: Bool) {
-        checkMarkImgView.image = isSelected ? UIImage(systemName: "checkmark.gobackward") : UIImage(systemName: "chevron.right")
+        checkMarkImgView.image = isSelected ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "checkmark.square")
         lblName.text = name
     }
 }

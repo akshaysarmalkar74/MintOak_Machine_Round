@@ -23,6 +23,8 @@ class FilterViewController: UIViewController {
     }
     var allData = [FilterData]()
     var someData = [FilterTypes]()
+    var selectedCompany: FilterData?
+    weak var delegate: CompanyDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +47,11 @@ class FilterViewController: UIViewController {
     @IBAction func didTapBackBtn(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
+    
+    @IBAction func didTapApplyBtn(_ sender: UIButton) {
+        self.delegate?.didTapCompany(name: self.selectedFilterData)
+        self.dismiss(animated: true)
+    }
 }
 
 // MARK: CollectionView Methods
@@ -62,12 +69,12 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let filterData = allData[indexPath.row]
+        selectedCompany = allData[indexPath.row]
         selectedFilterData = SelectedFilterData(
-            companyName: filterData.companyName ?? "",
-            accounts: DataFetcher.fetchAllAccounts(filterData: filterData),
-            brands: DataFetcher.fetchAllBrands(filterData: filterData),
-            locations: DataFetcher.fetchAllLocations(filterData: filterData)
+            companyName: selectedCompany?.companyName ?? "",
+            accounts: DataFetcher.fetchAllAccounts(filterData: selectedCompany),
+            brands: DataFetcher.fetchAllBrands(filterData: selectedCompany),
+            locations: DataFetcher.fetchAllLocations(filterData: selectedCompany)
         )
         collectionView.reloadData()
         tblView.reloadData()
@@ -92,6 +99,23 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Some Row Tapped")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let filterViewController = storyboard.instantiateViewController(withIdentifier: "FilterValueViewController") as! FilterValueViewController
+        filterViewController.popupType = someData[indexPath.row]
+        filterViewController.allValues = someData[indexPath.row].getAllSelectedValues(selectedFilterData: selectedCompany)
+        filterViewController.selectedValues = someData[indexPath.row].getSelectedValues(selectedFilterData: selectedFilterData)
+        filterViewController.selectedFilterData = selectedFilterData
+        filterViewController.allData = allData
+        filterViewController.delegate = self
+        filterViewController.modalPresentationStyle = .overCurrentContext
+        self.present(filterViewController, animated: true)
+    }
+}
+
+extension FilterViewController: CompanyDelegate {
+    func didTapCompany(name: SelectedFilterData?) {
+        self.selectedFilterData = name
+        tblView.reloadData()
+        delegate?.didTapCompany(name: name)
     }
 }

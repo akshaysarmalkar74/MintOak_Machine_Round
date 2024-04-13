@@ -18,7 +18,8 @@ class CompanyCollectionViewCell: UICollectionViewCell {
     
     func configureData(name: String?, isSelected: Bool) {
         lblCompanyName.text = name
-        bgView.backgroundColor = isSelected ? .blue : .clear
+        bgView.backgroundColor = isSelected ? UIColor.accentColor1 : .clear
+        lblCompanyName.textColor = isSelected ? .white : .black
     }
     
 }

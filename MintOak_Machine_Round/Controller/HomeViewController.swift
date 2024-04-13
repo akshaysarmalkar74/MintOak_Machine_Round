@@ -21,8 +21,13 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    var allData = [FilterData]()
+    var allData = [FilterData]() {
+        didSet {
+            selectedCompany = allData.first
+        }
+    }
     private var selectedFilterData: SelectedFilterData?
+    private var selectedCompany: FilterData?
 
     // MARK: ViewLifeCycle Methods
     override func viewDidLoad() {
@@ -41,6 +46,8 @@ extension HomeViewController {
         let filterViewController = storyboard.instantiateViewController(withIdentifier: "FilterViewController") as! FilterViewController
         filterViewController.allData = allData
         filterViewController.selectedFilterData = selectedFilterData
+        filterViewController.selectedCompany = selectedCompany
+        filterViewController.delegate = self
         filterViewController.modalPresentationStyle = .overCurrentContext
         self.present(filterViewController, animated: true)
     }
@@ -94,3 +101,12 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
+extension HomeViewController: CompanyDelegate {
+    func didTapCompany(name: SelectedFilterData?) {
+        self.selectedFilterData = name
+        self.selectedCompany = allData.first{ $0.companyName == self.selectedFilterData?.companyName }
+        lblCompanyName.text = self.selectedFilterData?.companyName
+        midNumsList = DataFetcher.fetchMIDNumbers(filterData: allData, selectedFilterData: selectedFilterData!)
+        tblView.reloadData()
+    }
+}

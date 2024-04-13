@@ -28,16 +28,16 @@ class DataFetcher {
 }
 
 extension DataFetcher {
-    static func fetchAllLocations(filterData: FilterData) -> [String] {
-        return filterData.locationList ?? []
+    static func fetchAllLocations(filterData: FilterData?) -> [String] {
+        return filterData?.locationList ?? []
     }
     
-    static func fetchAllBrands(filterData: FilterData) -> [String] {
-        return filterData.brandList ?? []
+    static func fetchAllBrands(filterData: FilterData?) -> [String] {
+        return filterData?.brandList ?? []
     }
     
-    static func fetchAllAccounts(filterData: FilterData) -> [String] {
-        return filterData.accountList ?? []
+    static func fetchAllAccounts(filterData: FilterData?) -> [String] {
+        return filterData?.accountList ?? []
     }
     
     static func fetchMIDNumbers(filterData: [FilterData], selectedFilterData: SelectedFilterData) -> [String?] {
@@ -47,20 +47,16 @@ extension DataFetcher {
         if let selectedCompanyHeirarchy = filterData.first(where: { $0.companyName == selectedFilterData.companyName })?.hierarchy {
             // Filter Data based on Brand, AccountID, and Location
             for heirarchy in selectedCompanyHeirarchy {
-                // Check if Account Number Matches
-                if selectedFilterData.accounts.contains(heirarchy.accountNumber ?? "") {
-                    // Check if Brand Matches
-                    let brandsList = heirarchy.brandNameList ?? []
-                    for brand in brandsList {
-                        if selectedFilterData.brands.contains(brand.brandName ?? "") {
-                            // Check if Location Matches
-                            let locationList = brand.locationNameList ?? []
-                            for location in locationList {
-                                if selectedFilterData.locations.contains(location.locationName ?? "") {
-                                    // Add MID Number
-                                    midNumbers.append(location.merchantNumber?.first?.mid)
-                                }
-                            }
+                // Check if Brand Matches
+                let brandsList = heirarchy.brandNameList ?? []
+                for brand in brandsList {
+                    let locationList = brand.locationNameList ?? []
+                    for location in locationList {
+                        if (selectedFilterData.locations.contains(location.locationName ?? "") &&
+                            selectedFilterData.accounts.contains(heirarchy.accountNumber ?? "") &&
+                            selectedFilterData.brands.contains(brand.brandName ?? "")) {
+                            // Add MID Number
+                            midNumbers.append(location.merchantNumber?.first?.mid)
                         }
                     }
                 }
@@ -68,44 +64,97 @@ extension DataFetcher {
         }
         return midNumbers
     }
-}
-
-struct SelectedFilterData {
-    let companyName: String
-    let accounts: [String]
-    let brands: [String]
-    let locations: [String]
-}
-
-enum FilterTypes {
-    case account(num: Int)
-    case brand(num: Int)
-    case location(num: Int)
     
-    var displayText: String {
-        switch self {
-            case .account:
-                return "Select Account Number"
-            case .brand:
-                return "Select Brand"
-            case .location:
-                return "Select Location"
+    static func fetchBasedOn(accountNumber: [String?], filterData: [FilterData], selectedFilterData: SelectedFilterData?) -> SelectedFilterData {
+        var brands = [String?]()
+        var locations = [String?]()
+        
+        // Fetch FilterData Based on Company Name
+        if let selectedCompanyHeirarchy = filterData.first(where: { $0.companyName == selectedFilterData?.companyName })?.hierarchy {
+            // Filter Data based on Brand, AccountID, and Location
+            for heirarchy in selectedCompanyHeirarchy {
+                // Check if Brand Matches
+                let brandsList = heirarchy.brandNameList ?? []
+                for brand in brandsList {
+                    let locationList = brand.locationNameList ?? []
+                    for location in locationList {
+                        if (accountNumber.contains(heirarchy.accountNumber ?? "")) {
+                            if !brands.contains(brand.brandName) {
+                                brands.append(brand.brandName)
+                            }
+                            
+                            if !locations.contains(location.locationName) {
+                                locations.append(location.locationName)
+                            }
+                        }
+                    }
+                }
+            }
         }
+        return SelectedFilterData(companyName: selectedFilterData?.companyName ?? "", accounts: accountNumber, brands: brands, locations: locations)
     }
     
-    func getValue() -> Int {
-        switch self {
-            case .account(num: let num):
-                return num
-            case .brand(num: let num):
-                return num
-            case .location(num: let num):
-                return num
+    static func fetchBasedOn(brands: [String?], filterData: [FilterData], selectedFilterData: SelectedFilterData?) -> SelectedFilterData {
+        var accounts = [String?]()
+        var locations = [String?]()
+        
+        // Fetch FilterData Based on Company Name
+        if let selectedCompanyHeirarchy = filterData.first(where: { $0.companyName == selectedFilterData?.companyName })?.hierarchy {
+            // Filter Data based on Brand, AccountID, and Location
+            for heirarchy in selectedCompanyHeirarchy {
+                // Check if Brand Matches
+                let brandsList = heirarchy.brandNameList ?? []
+                for brand in brandsList {
+                    let locationList = brand.locationNameList ?? []
+                    for location in locationList {
+                        if (brands.contains(brand.brandName ?? "")) {
+                            
+                            if !accounts.contains(heirarchy.accountNumber) {
+                                accounts.append(heirarchy.accountNumber)
+                            }
+                            
+                            if !locations.contains(location.locationName) {
+                                locations.append(location.locationName)
+                            }
+                        }
+                    }
+                }
+            }
         }
+        return SelectedFilterData(companyName: selectedFilterData?.companyName ?? "", accounts: accounts, brands: brands, locations: locations)
+    }
+    
+    static func fetchBasedOn(locations: [String?], filterData: [FilterData], selectedFilterData: SelectedFilterData?) -> SelectedFilterData {
+        var accounts = [String?]()
+        var brands = [String?]()
+        
+        // Fetch FilterData Based on Company Name
+        if let selectedCompanyHeirarchy = filterData.first(where: { $0.companyName == selectedFilterData?.companyName })?.hierarchy {
+            // Filter Data based on Brand, AccountID, and Location
+            for heirarchy in selectedCompanyHeirarchy {
+                // Check if Brand Matches
+                let brandsList = heirarchy.brandNameList ?? []
+                for brand in brandsList {
+                    let locationList = brand.locationNameList ?? []
+                    for location in locationList {
+                        if (locations.contains(location.locationName ?? "")) {
+                            if !accounts.contains(heirarchy.accountNumber) {
+                                accounts.append(heirarchy.accountNumber)
+                            }
+                            
+                            if !brands.contains(brand.brandName) {
+                                brands.append(brand.brandName)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return SelectedFilterData(companyName: selectedFilterData?.companyName ?? "", accounts: accounts, brands: brands, locations: locations)
     }
 }
-
 
 protocol CompanyDelegate: AnyObject {
-    func didTapCompany(name: String)
+    func didTapCompany(name: SelectedFilterData?)
 }
+

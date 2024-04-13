@@ -20,6 +20,8 @@
 		CF360C3C2BCABDF4004B62F5 /* FilterTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF360C3A2BCABDF3004B62F5 /* FilterTypeTableViewCell.xib */; };
 		CF360C3F2BCAC8BB004B62F5 /* FilterSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF360C3D2BCAC8BB004B62F5 /* FilterSelectTableViewCell.swift */; };
 		CF360C402BCAC8BB004B62F5 /* FilterSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF360C3E2BCAC8BB004B62F5 /* FilterSelectTableViewCell.xib */; };
+		CF360C422BCAD3C4004B62F5 /* FilterValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF360C412BCAD3C4004B62F5 /* FilterValueViewController.swift */; };
+		CF360C452BCB1035004B62F5 /* CommonEnumAndStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF360C442BCB1035004B62F5 /* CommonEnumAndStruct.swift */; };
 		CFDAE4B72BC80F3500DC00EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDAE4B62BC80F3500DC00EC /* AppDelegate.swift */; };
 		CFDAE4B92BC80F3500DC00EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDAE4B82BC80F3500DC00EC /* SceneDelegate.swift */; };
 		CFDAE4BB2BC80F3500DC00EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDAE4BA2BC80F3500DC00EC /* HomeViewController.swift */; };
@@ -42,6 +44,8 @@
 		CF360C3A2BCABDF3004B62F5 /* FilterTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTypeTableViewCell.xib; sourceTree = "<group>"; };
 		CF360C3D2BCAC8BB004B62F5 /* FilterSelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectTableViewCell.swift; sourceTree = "<group>"; };
 		CF360C3E2BCAC8BB004B62F5 /* FilterSelectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterSelectTableViewCell.xib; sourceTree = "<group>"; };
+		CF360C412BCAD3C4004B62F5 /* FilterValueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterValueViewController.swift; sourceTree = "<group>"; };
+		CF360C442BCB1035004B62F5 /* CommonEnumAndStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEnumAndStruct.swift; sourceTree = "<group>"; };
 		CFDAE4B32BC80F3500DC00EC /* MintOak_Machine_Round.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MintOak_Machine_Round.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFDAE4B62BC80F3500DC00EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFDAE4B82BC80F3500DC00EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			children = (
 				CFDAE4BA2BC80F3500DC00EC /* HomeViewController.swift */,
 				CF31DA6A2BC8399200C86C98 /* FilterViewController.swift */,
+				CF360C412BCAD3C4004B62F5 /* FilterValueViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -129,6 +134,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CF360C432BCB1020004B62F5 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CF360C442BCB1035004B62F5 /* CommonEnumAndStruct.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		CFDAE4AA2BC80F3400DC00EC = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +161,7 @@
 		CFDAE4B52BC80F3500DC00EC /* MintOak_Machine_Round */ = {
 			isa = PBXGroup;
 			children = (
+				CF360C432BCB1020004B62F5 /* Utility */,
 				CF31DA672BC81F9A00C86C98 /* Extensions */,
 				CF31DA592BC81A4700C86C98 /* Model */,
 				CFDAE4B62BC80F3500DC00EC /* AppDelegate.swift */,
@@ -246,9 +260,11 @@
 				CF31DA652BC81E6300C86C98 /* MIDTableViewCell.swift in Sources */,
 				CF31DA6E2BC8422F00C86C98 /* CompanyCollectionViewCell.swift in Sources */,
 				CFDAE4B72BC80F3500DC00EC /* AppDelegate.swift in Sources */,
+				CF360C422BCAD3C4004B62F5 /* FilterValueViewController.swift in Sources */,
 				CFDAE4B92BC80F3500DC00EC /* SceneDelegate.swift in Sources */,
 				CF31DA582BC819D400C86C98 /* DataFetcher.swift in Sources */,
 				CF360C3B2BCABDF3004B62F5 /* FilterTypeTableViewCell.swift in Sources */,
+				CF360C452BCB1035004B62F5 /* CommonEnumAndStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

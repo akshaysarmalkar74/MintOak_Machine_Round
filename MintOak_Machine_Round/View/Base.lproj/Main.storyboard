@@ -108,7 +108,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rij-Jm-4eq" customClass="CardView" customModule="MintOak_Machine_Round" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rij-Jm-4eq">
                                 <rect key="frame" x="0.0" y="498" width="393" height="354"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vhi-BJ-9Hd">
@@ -138,7 +138,7 @@
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqx-JO-y0i">
                                                 <rect key="frame" x="0.0" y="210" width="393" height="50"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <color key="backgroundColor" red="0.0" green="0.45882352941176469" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Bqb-Mm-KFC"/>
                                                 </constraints>
@@ -147,10 +147,13 @@
                                                 <state key="normal" title="Apply Filter">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapApplyBtn:" destination="stM-EV-dkm" eventType="touchUpInside" id="e2A-Uo-PFr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdM-E6-c3B" customClass="CardView" customModule="MintOak_Machine_Round" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdM-E6-c3B">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apply Filters" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqN-Wn-e3c">
@@ -166,9 +169,6 @@
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="arrowshape.turn.up.left.2.fill" catalog="system"/>
-                                                <connections>
-                                                    <action selector="didTapBackBtn:" destination="stM-EV-dkm" eventType="touchUpInside" id="T8W-or-hvI"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.97254901959999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
@@ -181,15 +181,6 @@
                                             <constraint firstItem="VfO-xO-0SO" firstAttribute="top" secondItem="TdM-E6-c3B" secondAttribute="top" id="f7V-Rw-tDj"/>
                                             <constraint firstItem="EqN-Wn-e3c" firstAttribute="centerY" secondItem="TdM-E6-c3B" secondAttribute="centerY" id="s5t-Im-1ER"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isTop" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="25"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -201,15 +192,6 @@
                                     <constraint firstAttribute="trailing" secondItem="vhi-BJ-9Hd" secondAttribute="trailing" id="Yhg-AL-zeV"/>
                                     <constraint firstItem="vhi-BJ-9Hd" firstAttribute="top" secondItem="TdM-E6-c3B" secondAttribute="bottom" constant="5" id="ZyF-u9-dti"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isTop" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZdM-2C-Y3p"/>
@@ -231,12 +213,146 @@
             </objects>
             <point key="canvasLocation" x="838.93129770992368" y="-2.1126760563380285"/>
         </scene>
+        <!--Filter Value View Controller-->
+        <scene sceneID="I9s-u4-HFA">
+            <objects>
+                <viewController storyboardIdentifier="FilterValueViewController" id="cwz-vg-pBH" customClass="FilterValueViewController" customModule="MintOak_Machine_Round" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tXp-z4-gsQ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBi-HD-QiZ">
+                                <rect key="frame" x="0.0" y="518" width="393" height="300"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T2d-kZ-jLg">
+                                        <rect key="frame" x="0.0" y="60" width="393" height="240"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhw-ML-L2n">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3f-mq-mL0">
+                                                        <rect key="frame" x="10" y="0.0" width="99.333333333333329" height="40"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="PMK-Vb-tG2"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title=" Select All" image="checkmark.square" catalog="system">
+                                                            <color key="titleColor" name="AccentColor 1"/>
+                                                        </state>
+                                                        <state key="selected" title=" Select All" image="checkmark.square.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="didTapSelectAllBtn:" destination="cwz-vg-pBH" eventType="touchUpInside" id="60Y-8F-kXL"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="h3f-mq-mL0" firstAttribute="top" secondItem="jhw-ML-L2n" secondAttribute="top" id="Qo0-m4-8rz"/>
+                                                    <constraint firstItem="h3f-mq-mL0" firstAttribute="leading" secondItem="jhw-ML-L2n" secondAttribute="leading" constant="10" id="SmE-94-0bA"/>
+                                                    <constraint firstAttribute="bottom" secondItem="h3f-mq-mL0" secondAttribute="bottom" id="gIo-6U-eLN"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="h3f-mq-mL0" secondAttribute="trailing" constant="20" id="vTP-T3-rUO"/>
+                                                </constraints>
+                                            </view>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B3W-vX-6yW">
+                                                <rect key="frame" x="0.0" y="40" width="393" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="28a-BY-koV"/>
+                                                </constraints>
+                                                <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                            </tableView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGq-xL-WHn">
+                                                <rect key="frame" x="0.0" y="190" width="393" height="50"/>
+                                                <color key="backgroundColor" red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="SCz-Q0-pfg"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Apply">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapApplyButton:" destination="cwz-vg-pBH" eventType="touchUpInside" id="eMH-yw-Q00"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lu3-5M-GBD">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="55"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Locations" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRf-hb-xfo">
+                                                <rect key="frame" x="20" y="19" width="303" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLW-uP-nxL">
+                                                <rect key="frame" x="333" y="0.0" width="55" height="55"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="XLW-uP-nxL" secondAttribute="height" multiplier="1:1" id="LmA-el-aBJ"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="arrowshape.turn.up.left.2.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="didTapBackBtn:" destination="stM-EV-dkm" eventType="touchUpInside" id="mcU-OC-JhF"/>
+                                                    <action selector="didTapCancelBtn:" destination="cwz-vg-pBH" eventType="touchUpInside" id="sOx-9U-WFr"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.97254901959999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="Kvq-yP-x3M"/>
+                                            <constraint firstItem="XLW-uP-nxL" firstAttribute="leading" secondItem="rRf-hb-xfo" secondAttribute="trailing" constant="10" id="RB3-hl-0Ae"/>
+                                            <constraint firstAttribute="bottom" secondItem="XLW-uP-nxL" secondAttribute="bottom" id="TlK-Lo-3zu"/>
+                                            <constraint firstAttribute="trailing" secondItem="XLW-uP-nxL" secondAttribute="trailing" constant="5" id="eqR-1z-9EK"/>
+                                            <constraint firstItem="rRf-hb-xfo" firstAttribute="leading" secondItem="Lu3-5M-GBD" secondAttribute="leading" constant="20" id="tr6-49-j5j"/>
+                                            <constraint firstItem="XLW-uP-nxL" firstAttribute="top" secondItem="Lu3-5M-GBD" secondAttribute="top" id="xm9-EH-Lk7"/>
+                                            <constraint firstItem="rRf-hb-xfo" firstAttribute="centerY" secondItem="Lu3-5M-GBD" secondAttribute="centerY" id="yex-e6-uMj"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="T2d-kZ-jLg" firstAttribute="leading" secondItem="vBi-HD-QiZ" secondAttribute="leading" id="2nc-A7-A7H"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lu3-5M-GBD" secondAttribute="trailing" id="3Zb-9F-ouZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="T2d-kZ-jLg" secondAttribute="bottom" id="OmM-99-EDe"/>
+                                    <constraint firstItem="Lu3-5M-GBD" firstAttribute="leading" secondItem="vBi-HD-QiZ" secondAttribute="leading" id="Poi-Z7-ds6"/>
+                                    <constraint firstAttribute="trailing" secondItem="T2d-kZ-jLg" secondAttribute="trailing" id="YyR-PU-pkI"/>
+                                    <constraint firstItem="T2d-kZ-jLg" firstAttribute="top" secondItem="Lu3-5M-GBD" secondAttribute="bottom" constant="5" id="gOA-ij-Qcf"/>
+                                    <constraint firstItem="Lu3-5M-GBD" firstAttribute="top" secondItem="vBi-HD-QiZ" secondAttribute="top" id="v0Q-0Q-1Ks"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Wy4-v1-kxx"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Wy4-v1-kxx" firstAttribute="bottom" secondItem="vBi-HD-QiZ" secondAttribute="bottom" id="1pj-2d-GJ2"/>
+                            <constraint firstItem="vBi-HD-QiZ" firstAttribute="trailing" secondItem="Wy4-v1-kxx" secondAttribute="trailing" id="Fca-7Z-uW6"/>
+                            <constraint firstItem="vBi-HD-QiZ" firstAttribute="leading" secondItem="Wy4-v1-kxx" secondAttribute="leading" id="PfO-8g-mQM"/>
+                            <constraint firstItem="vBi-HD-QiZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Wy4-v1-kxx" secondAttribute="top" id="ri9-Ej-Z32"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="applyBtn" destination="jGq-xL-WHn" id="ghb-0l-bUE"/>
+                        <outlet property="btnSelectAll" destination="h3f-mq-mL0" id="Wqd-Ii-t4I"/>
+                        <outlet property="lblSelectVal" destination="rRf-hb-xfo" id="6sE-Wz-lAz"/>
+                        <outlet property="tblView" destination="B3W-vX-6yW" id="qHI-go-mue"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kdW-2P-b0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1603.8167938931297" y="-2.1126760563380285"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrowshape.turn.up.left.2.fill" catalog="system" width="128" height="99"/>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="AccentColor 1">
+            <color red="0.0" green="0.45882352941176469" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
