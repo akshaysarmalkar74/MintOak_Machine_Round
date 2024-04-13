@@ -108,13 +108,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rij-Jm-4eq" customClass="CardView" customModule="InvestEasy" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="248" width="393" height="604"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rij-Jm-4eq" customClass="CardView" customModule="MintOak_Machine_Round" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="498" width="393" height="354"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vhi-BJ-9Hd">
-                                        <rect key="frame" x="0.0" y="60" width="393" height="510"/>
+                                        <rect key="frame" x="0.0" y="60" width="393" height="260"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cTB-jS-ZeH">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cTB-jS-ZeH">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -129,15 +129,15 @@
                                                 <cells/>
                                             </collectionView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dr8-mF-97S">
-                                                <rect key="frame" x="0.0" y="60" width="393" height="400"/>
+                                                <rect key="frame" x="0.0" y="60" width="393" height="150"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="400" id="p1F-aF-kSB"/>
+                                                    <constraint firstAttribute="height" constant="150" id="p1F-aF-kSB"/>
                                                 </constraints>
                                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqx-JO-y0i">
-                                                <rect key="frame" x="0.0" y="460" width="393" height="50"/>
+                                                <rect key="frame" x="0.0" y="210" width="393" height="50"/>
                                                 <color key="backgroundColor" name="AccentColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Bqb-Mm-KFC"/>
@@ -150,7 +150,7 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdM-E6-c3B" customClass="CardView" customModule="InvestEasy" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdM-E6-c3B" customClass="CardView" customModule="MintOak_Machine_Round" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apply Filters" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqN-Wn-e3c">
@@ -224,6 +224,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="cTB-jS-ZeH" id="C9y-bB-pJq"/>
+                        <outlet property="tblView" destination="dr8-mF-97S" id="OaT-sf-e8I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOb-3F-1uW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

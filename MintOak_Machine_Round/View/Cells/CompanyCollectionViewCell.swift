@@ -11,7 +11,7 @@ class CompanyCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var lblCompanyName: UILabel!
     @IBOutlet weak var bgView: UIView!
-    
+      
     override func awakeFromNib() {
         super.awakeFromNib()
     }

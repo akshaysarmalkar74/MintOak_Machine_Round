@@ -93,7 +93,19 @@ enum FilterTypes {
         }
     }
     
-//    static func generateFilterValues(filterVal: FilterData) -> [FilterTypes] {
-//        
-//    }
+    func getValue() -> Int {
+        switch self {
+            case .account(num: let num):
+                return num
+            case .brand(num: let num):
+                return num
+            case .location(num: let num):
+                return num
+        }
+    }
+}
+
+
+protocol CompanyDelegate: AnyObject {
+    func didTapCompany(name: String)
 }
